@@ -127,6 +127,7 @@ class AvoidSoftInputManager(private val context: ReactContext) {
         return
       }
 
+      mPreviousRootView = rootView
       setOffset(from, to, currentFocusedView, rootView)
     }
   }
