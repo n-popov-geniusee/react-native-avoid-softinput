@@ -1,42 +1,26 @@
 {
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/react",
-      "**/react-dom",
-      "**/react-native",
-      "**/react-native/**",
-      "**/@gorhom/bottom-sheet",
-      "**/react-native-gesture-handler",
-      "**/react-native-reanimated"
-    ]
+  "name": "react-native-avoid-softinput",
+  "version": "2.4.6",
+  "description": "Native logic for avoiding covering  text inputs by soft input views",
+  "keywords": [
+    "react-native",
+    "soft input",
+    "keyboard",
+    "avoid soft input",
+    "avoid keyboard",
+    "ios",
+    "android"
+  ],
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mateusz1913/react-native-avoid-softinput.git",
+    "directory": "packages/react-native-avoid-softinput"
   },
-  "scripts": {
-    "test": "jest",
-    "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "bob build && husky install",
-    "release": "yarn --cwd packages/react-native-avoid-softinput release-it",
-    "example:mobile": "yarn --cwd packages/mobile",
-    "bootstrap": "yarn example:mobile && yarn && yarn pods",
-    "pods": "cd packages/mobile && pod-install --quiet && cd ../..",
-    "reset": "yarn reset:node_modules && yarn reset:pods",
-    "reset:node_modules": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock",
-    "reset:pods": "find . -type dir -name Pods | xargs rm -rf && find . -type f -name Podfile.lock | xargs rm -rf",
-    "android:metro": "yarn workspace @avoid-softinput-example/mobile start",
-    "android:start": "yarn workspace @avoid-softinput-example/mobile android",
-    "android:studio": "yarn workspace @avoid-softinput-example/mobile studio",
-    "ios:metro": "yarn workspace @avoid-softinput-example/mobile start",
-    "ios:start": "yarn workspace @avoid-softinput-example/mobile ios",
-    "ios:xcode": "yarn workspace @avoid-softinput-example/mobile xcode",
-    "docs:start": "yarn --cwd docs start --host 0.0.0.0",
-    "docs:build": "yarn --cwd docs build",
-    "docs:clear": "yarn --cwd docs clear"
-  },
-  "repository": "https://github.com/mateusz1913/react-native-avoid-softinput",
   "author": "Mateusz Mędrek <luigimario1913@gmail.com> (https://github.com/mateusz1913)",
   "license": "MIT",
   "bugs": {
@@ -46,58 +30,28 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "react-native-avoid-softinput.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
   "devDependencies": {
-    "@commitlint/config-conventional": "13.1.0",
-    "@release-it/conventional-changelog": "3.3.0",
-    "@typescript-eslint/eslint-plugin": "4.31.2",
-    "@typescript-eslint/parser": "4.31.2",
-    "commitlint": "13.1.0",
-    "eslint": "7.32.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-import": "2.24.2",
-    "eslint-plugin-react": "7.26.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-native": "^3.11.0",
-    "husky": "^7.0.0",
-    "pod-install": "0.1.27",
-    "react-native-builder-bob": "^0.18.1",
-    "release-it": "14.11.6",
-    "typescript": "4.4.3"
+    "@types/react": "17.0.39",
+    "@types/react-native": "0.67.1",
+    "react": "17.0.2",
+    "react-native": "0.67.3"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
-    }
-  },
-  "react-native-builder-bob": {
-    "source": "packages/react-native-avoid-softinput/src",
-    "output": "packages/react-native-avoid-softinput/lib",
-    "targets": [
-      "commonjs",
-      "module",
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
-    ]
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.64.0"
   }
 }
